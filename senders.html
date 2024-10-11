@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="module" src="./js/senderService.js"></script>
+    <script type="module" src="./js/clockWatch.js"></script>
+</head>
+<body class="bg-[#6B8F71]">
+    <header class="h-20 bg-[#0D2B1D] flex items-center justify-around gap-2">
+        <h1 class="text-xl sm:text-3xl text-[#AEC3B0] pb-3">Email Sender</h1>
+        <section class="border border-[#d7f0d9] rounded-sm">
+            <div id="Clock" class="flex flex-col gap-1 text-sm justify-center items-center" >
+                <div class="flex flex-row justify-evenly items-center gap-1 ">
+                    <input type="text" name="m" id="m" readonly  class="w-12 text-center" disabled />:
+                    <input type="text" name="s" id="s" readonly  class="w-12 text-center" disabled />:
+                    <input type="text" name="ms"id="ms"readonly  class="w-12 text-center" disabled />
+                
+                </div>
+                <div class="flex justify-center items-center">
+                    <div id="WaitMode" class="text-xs">
+                        <button id="KnockButton" class="bg-[#345635] p-2 hover:bg-[#5d9c60] text-papayawhip-dark rounded-md">Start</button>
+                        <button id="ResetButton" class="bg-[#345635] p-2 hover:bg-[#5d9c60] text-papayawhip-dark rounded-md">Reset</button>
+                        <button id="ResumeButton" class="bg-[#345635] p-2 hover:bg-[#5d9c60] text-papayawhip-dark rounded-md">Resume</button>
+                    </div>
+                    <div id="CountMode" class="hidden">
+                        <button id="PauseButton" class="bg-[#345635] p-2 hover:bg-[#5d9c60] text-papayawhip-dark rounded-md">Pause</button>
+                        <button id="StopButton" class="bg-[#345635] p-2 hover:bg-[#5d9c60] text-papayawhip-dark rounded-md">Stop</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="text-sm sm:text-xl text-[#AEC3B0] hover:text-[#d7f0d9]">
+            <a href="./index.html">Emails management</a>
+        </nav>
+    </header>
+    <main class="flex justify-around items-center sm:flex-row flex-col mb-10">
+       
+        <section>
+            <h1 id="waitNote" class="offset text-red-700">Wait ... </h1>
+
+            <div class=" mx-4 sm:w-fit w-auto border-2 border-double border-[#345635] rounded-xl p-3 mt-5" >
+                <h2 class="text-xl">Write a message :</h2>
+                <div id="messageContainer" class="sm:text-lg border-2 border-double border-[#345635] rounded-lg" >
+                    <textarea class="rounded-xl m-2 p-1 text-sm sm:text-lg" id="message" placeholder="Thanks you Engs." required cols="35" rows="7"></textarea>
+                </div>
+                <button id="sendButton" class="rounded-md bg-[#345635] sm:text-xl p-2 hover:bg-[#5d9c60] size-fit text-papayawhip-dark m-2">Send</button>
+                <button id="clearButton" class="rounded-md bg-[#345635] sm:text-xl p-2 hover:bg-[#5d9c60] size-fit text-papayawhip-dark m-2">Clear</button>
+                <div id="timer" class="my-3 flex items-center justify-around border rounded-lg border-[#345635] ">
+                    <label for="time">Set Timer: </label>
+                    <input type="time" id="time" class="rounded-sm">
+                    <button id="timerButton" class="bg-[#345635] sm:text-xl p-2 hover:bg-[#5d9c60] size-fit text-papayawhip-dark m-2 rounded-md">Activate</button>
+                </div>
+                <div>
+                    <label for="email-select">Choose a user:</label>
+                    <select name="users" id="usersEmail" class="rounded-sm" >
+                        <option>example@example.com</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section id="alarms" class="w-auto py-10" >
+                <h3 class="sm:text-xl text-[#d7f0d9]">Alarms:</h3>
+                <ol class="border-2 border-dashed border-[#345635]">
+                
+                </ol>
+        </section>
+        
+    </main>
+    
+</body>
+
+
+</html>
